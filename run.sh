@@ -45,6 +45,6 @@ done
 echo "Testing ABCDE"
 
 for w in compiled/t-*.fst; do
-    fstcompose $w compiled/removeVowel.fst | fstshortestpath | fstproject --project_type=output |
+    fstcompose $w compiled/removeVowel.fst | fstshortestpath | fstproject --project_output=true |
     fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 done
