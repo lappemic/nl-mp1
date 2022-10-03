@@ -132,8 +132,12 @@ echo "Testing step 4 with BUDGIES (-> BUJGIES)"
 fstcompose compiled/t-budgies.fst compiled/step4.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 4 with ABDUCED (-> ABTUCET) and AID (-> AIT)"
+echo "Testing step 4 with ABDUCED (-> ABTUCET)"
 fstcompose compiled/t-abduced.fst compiled/step4.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 4 with AID (-> AIT)"
+fstcompose compiled/t-aid.fst compiled/step4.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
 
@@ -150,4 +154,40 @@ fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
 echo "Testing step 5 with SIGNED (-> SINED)"
 fstcompose compiled/t-signed.fst compiled/step5.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+
+
+echo "####################### TESTING OF STEP 6 #######################"
+
+echo "Testing step 6 with FIHT (-> FIT)"
+fstcompose compiled/t-fiht.fst compiled/step6.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 6 with MAHARAJAH (-> MAHARAJA)"
+fstcompose compiled/t-maharajah.fst compiled/step6.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 6 with LUCK (-> LUK)"
+fstcompose compiled/t-luck.fst compiled/step6.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 6 with PHOTO (-> FOTO)"
+fstcompose compiled/t-photo.fst compiled/step6.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 6 with QUITE (-> KUITE)"
+fstcompose compiled/t-quite.fst compiled/step6.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 6 with SHOULD (-> XHOULD)"
+fstcompose compiled/t-should.fst compiled/step6.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 6 with COMISIONER (-> COMIXIONER)"
+fstcompose compiled/t-comisioner.fst compiled/step6.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 6 with RUSIA (-> RUXIA)"
+fstcompose compiled/t-rusia.fst compiled/step6.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
