@@ -49,37 +49,36 @@ for w in compiled/t-*.fst; do
     fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 done
 
+
 echo "####################### TESTING OF STEP 1 #######################"
 
-echo "Testing step 1 with ERRORS"
-
+echo "Testing step 1 with ERRORS (drop duplicated adjacent letters, except 'C')"
 fstcompose compiled/t-errors.fst compiled/step1.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 1 with ACCORDING"
-
+echo "Testing step 1 with ACCORDING (drop duplicated adjacent letters, except 'C')"
 fstcompose compiled/t-according.fst compiled/step1.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-
-echo "Testing step 1 with RUSSIAN"
-
+echo "Testing step 1 with RUSSIAN (drop duplicated adjacent letters, except 'C')"
 fstcompose compiled/t-russian.fst compiled/step1.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
+
 echo "####################### TESTING OF STEP 2 #######################"
 
-echo "Testing step 2 with KNEE"
-
+echo "Testing step 2 with KNEE (if word begins with 'KN', 'GN', 'PN', 'AE', or 'WR', drop first letter)"
 fstcompose compiled/t-knee.fst compiled/step2.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 2 with GNOME"
-
+echo "Testing step 2 with GNOME (if word begins with 'KN', 'GN', 'PN', 'AE', or 'WR', drop first letter)"
 fstcompose compiled/t-gnome.fst compiled/step2.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 2 with WRAPPERS"
-
+echo "Testing step 2 with WRAPPERS (if word begins with 'KN', 'GN', 'PN', 'AE', or 'WR', drop first letter)"
 fstcompose compiled/t-wrappers.fst compiled/step2.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 2 with BREADCRUMB (if the word ends with 'MB' drop the 'B'.)"
+fstcompose compiled/t-breadcrumb.fst compiled/step2.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
