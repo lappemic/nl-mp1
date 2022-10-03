@@ -219,3 +219,43 @@ fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 echo "Testing step 7 with WHAT (-> WAT)"
 fstcompose compiled/t-what.fst compiled/step7.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+
+
+echo "####################### TESTING OF STEP 8 #######################"
+
+echo "Testing step 8 with XENON (-> SENON)"
+fstcompose compiled/t-xenon.fst compiled/step8.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 8 with SEX (-> SEKS)"
+fstcompose compiled/t-sex.fst compiled/step8.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 8 with LAWN (-> LAN)"
+fstcompose compiled/t-lawn.fst compiled/step8.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 8 with BY (-> B)"
+fstcompose compiled/t-by.fst compiled/step8.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 8 with KEYBOARD (-> KEBOARD)"
+fstcompose compiled/t-keyboard.fst compiled/step8.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 8 with SIZE (-> SISE)"
+fstcompose compiled/t-size.fst compiled/step8.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+
+
+echo "####################### TESTING OF STEP 9 #######################"
+
+echo "Testing step 9 with USE (-> US)"
+fstcompose compiled/t-use.fst compiled/step9.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 8 with KEBOARD (-> KBRD)"
+fstcompose compiled/t-keboard.fst compiled/step9.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt

@@ -1,0 +1,20 @@
+0 0 [A-Z0] = 1
+
+3 0 X S
+
+0 2 X K
+2 0 eps S
+
+0 1 W W
+1 0 [AEIOU] =
+
+0 0 W eps
+
+0 1 Y Y
+1 0 [AEIOU] =
+
+0 0 Y eps
+
+0 0 Z S
+
+0
