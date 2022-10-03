@@ -144,7 +144,7 @@ echo "Testing step 5 with FIGHT (-> FIHT)"
 fstcompose compiled/t-fight.fst compiled/step5.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 5 with FOREIGN (-> FOREIN)"
+echo "Testing step 5 with FOREIGN (-> FOREIN) -> TO DO: HAS TO BE CHECKED - G OR N TO DROP?"
 fstcompose compiled/t-foreign.fst compiled/step5.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
