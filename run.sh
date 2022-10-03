@@ -82,3 +82,37 @@ fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 echo "Testing step 2 with BREADCRUMB (if the word ends with 'MB' drop the 'B'.)"
 fstcompose compiled/t-breadcrumb.fst compiled/step2.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+
+echo "####################### TESTING OF STEP 3 #######################"
+
+echo "Testing step 3 with SCHOOL (-> SKHOOL)"
+fstcompose compiled/t-school.fst compiled/step3.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 3 with ACHIEVER (-> AXHIEVER)"
+fstcompose compiled/t-achiever.fst compiled/step3.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 3 with PRONUNCIATION (-> PRONUNXIATION)"
+fstcompose compiled/t-pronunciation.fst compiled/step3.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 3 with VICIOUS (-> VISIOUS)"
+fstcompose compiled/t-vicious.fst compiled/step3.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 3 with ABSENCE (-> ABSENSE)"
+fstcompose compiled/t-absence.fst compiled/step3.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 3 with CYBERNETICIAN (-> SYBERNETIXIAN)"
+fstcompose compiled/t-cybernetician.fst compiled/step3.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 3 with CULTURE (-> KULTURE)"
+fstcompose compiled/t-culture.fst compiled/step3.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+
+echo "####################### TESTING OF STEP 4 #######################"
