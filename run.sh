@@ -191,3 +191,31 @@ fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 echo "Testing step 6 with RUSIA (-> RUXIA)"
 fstcompose compiled/t-rusia.fst compiled/step6.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+
+
+echo "####################### TESTING OF STEP 7 #######################"
+
+echo "Testing step 7 with SUBSTANTIAL (-> SUBSTANXIAL)"
+fstcompose compiled/t-substantial.fst compiled/step7.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 7 with CALCULATION (-> CALCULAXION)"
+fstcompose compiled/t-calculation.fst compiled/step7.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 7 with THE (-> 0E)"
+fstcompose compiled/t-the.fst compiled/step7.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 7 with MATCH (-> MACH)"
+fstcompose compiled/t-match.fst compiled/step7.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 7 with HAVE (-> HAFE)"
+fstcompose compiled/t-have.fst compiled/step7.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 7 with WHAT (-> WAT)"
+fstcompose compiled/t-what.fst compiled/step7.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
