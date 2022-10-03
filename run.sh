@@ -65,6 +65,7 @@ fstcompose compiled/t-russian.fst compiled/step1.fst| fstshortestpath | fstproje
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
 
+
 echo "####################### TESTING OF STEP 2 #######################"
 
 echo "Testing step 2 with KNEE (if word begins with 'KN', 'GN', 'PN', 'AE', or 'WR', drop first letter)"
@@ -82,6 +83,7 @@ fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 echo "Testing step 2 with BREADCRUMB (if the word ends with 'MB' drop the 'B'.)"
 fstcompose compiled/t-breadcrumb.fst compiled/step2.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
 
 
 echo "####################### TESTING OF STEP 3 #######################"
@@ -115,4 +117,37 @@ fstcompose compiled/t-culture.fst compiled/step3.fst| fstshortestpath | fstproje
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
 
+
 echo "####################### TESTING OF STEP 4 #######################"
+
+echo "Testing step 4 with PLEDGES (-> PLEJGES)"
+fstcompose compiled/t-pledges.fst compiled/step4.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 4 with FUDGY (-> FUJGY)"
+fstcompose compiled/t-fudgy.fst compiled/step4.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 4 with BUDGIES (-> BUJGIES)"
+fstcompose compiled/t-budgies.fst compiled/step4.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 4 with ABDUCED (-> ABTUCET) and AID (-> AIT)"
+fstcompose compiled/t-abduced.fst compiled/step4.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+
+
+echo "####################### TESTING OF STEP 5 #######################"
+
+echo "Testing step 5 with FIGHT (-> FIHT)"
+fstcompose compiled/t-fight.fst compiled/step5.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 5 with FOREIGN (-> FOREIN)"
+fstcompose compiled/t-foreign.fst compiled/step5.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 5 with SIGNED (-> SINED)"
+fstcompose compiled/t-signed.fst compiled/step5.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
