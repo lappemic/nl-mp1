@@ -1,0 +1,28 @@
+0 0 [A-Z] = 1
+
+0 1 [AEIOU] = 
+1 2 H H
+2 0 [AEIOU] =
+
+1 0 H eps
+
+0 3 C eps
+3 0 K K
+
+0 4 P eps
+4 0 H F
+
+0 0 Q K
+
+0 5 S X
+5 0 H H
+
+0 6 S X
+6 7 I I
+7 0 O O
+
+0 8 S X
+8 9 I I
+9 0 A A
+
+0
