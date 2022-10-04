@@ -23,8 +23,11 @@ for i in sources/*.txt tests/*.txt; do
 done
 
 # ############ CORE OF THE PROJECT  ############
+echo "Starting to build metaphoneLN"
 
+fstconcat compiled/step1.fst compiled/step2.fst > compiled/concatTry.fst
 
+fstunion compiled/step2.fst compiled/step3.fst > compiled/unionTry.fst
 
 
 
@@ -41,14 +44,6 @@ done
 
 
 # ############ tests  ############
-
-echo "Testing ABCDE"
-
-for w in compiled/t-*.fst; do
-    fstcompose $w compiled/removeVowel.fst | fstshortestpath | fstproject --project_type=output |
-    fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
-done
-
 
 echo "####################### TESTING OF STEP 1 #######################"
 
