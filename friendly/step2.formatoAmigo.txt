@@ -1,4 +1,15 @@
-0 1 K K
+0 0 [A-Z0] = 1
+0 1 K eps
 1 2 N N
-2 0 N eps
+0 1 G eps
+0 1 P eps
+0 3 A eps
+3 2 E E
+0 4 W eps
+4 2 R R
+2 2 [A-Z0] = 1
+0 5 M M
+2 5 M M
+5 6 B eps
 2
+6

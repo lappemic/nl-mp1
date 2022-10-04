@@ -1,54 +1,78 @@
+0	0	A	A	1
+0	0	E	E	1
+0	0	I	I	1
+0	0	O	O	1
+0	0	U	U	1
+0	0	B	B	1
+0	0	C	C	1
+0	0	D	D	1
+0	0	F	F	1
+0	0	G	G	1
+0	0	H	H	1
+0	0	J	J	1
+0	0	K	K	1
+0	0	L	L	1
+0	0	M	M	1
+0	0	N	N	1
+0	0	P	P	1
+0	0	Q	Q	1
+0	0	R	R	1
+0	0	S	S	1
+0	0	T	T	1
+0	0	V	V	1
+0	0	W	W	1
+0	0	X	X	1
+0	0	Y	Y	1
+0	0	Z	Z	1
+0	0	0	0	1
 0	1	A	A
-0	1	E	E
-0	1	I	I
-0	1	O	O
-0	1	U	U
-0	1	B	B
-0	1	C	C
-0	1	D	D
-0	1	F	F
-0	1	G	G
-0	1	H	H
-0	1	J	J
-0	1	K	K
-0	1	L	L
-0	1	M	M
-0	1	N	N
-0	1	P	P
-0	1	Q	Q
-0	1	R	R
-0	1	S	S
-0	1	T	T
-0	1	V	V
-0	1	W	W
-0	1	X	X
-0	1	Y	Y
-0	1	Z	Z
-1	2	A	eps
-1	2	E	eps
-1	2	I	eps
-1	2	O	eps
-1	2	U	eps
-1	2	B	eps
-1	2	C	eps
-1	2	D	eps
-1	2	F	eps
-1	2	G	eps
-1	2	H	eps
-1	2	J	eps
-1	2	K	eps
-1	2	L	eps
-1	2	M	eps
-1	2	N	eps
-1	2	P	eps
-1	2	Q	eps
-1	2	R	eps
-1	2	S	eps
-1	2	T	eps
-1	2	V	eps
-1	2	W	eps
-1	2	X	eps
-1	2	Y	eps
-1	2	Z	eps
-1	2	C	C
-2
+1	0	A	eps
+0	2	B	B
+2	0	B	eps
+0	3	D	D
+3	0	D	eps
+0	4	E	E
+4	0	E	eps
+0	5	F	F
+5	0	F	eps
+0	6	G	G
+6	0	G	eps
+0	7	H	H
+7	0	H	eps
+0	8	I	I
+8	0	I	eps
+0	9	J	J
+9	0	J	eps
+0	10	K	K
+10	0	K	eps
+0	11	L	L
+11	0	L	eps
+0	12	M	M
+12	0	M	eps
+0	13	N	N
+13	0	N	eps
+0	14	O	O
+14	0	O	eps
+0	15	P	P
+15	0	P	eps
+0	16	Q	Q
+16	0	Q	eps
+0	17	R	R
+17	0	R	eps
+0	18	S	S
+18	0	S	eps
+0	19	T	T
+19	0	T	eps
+0	20	U	U
+20	0	U	eps
+0	21	V	V
+21	0	V	eps
+0	22	W	W
+22	0	W	eps
+0	23	X	X
+23	0	X	eps
+0	24	Y	Y
+24	0	Y	eps
+0	25	Z	Z
+25	0	Z	eps
+0
