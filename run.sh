@@ -140,6 +140,10 @@ echo "Testing step 4 with AID (-> AIT)"
 fstcompose compiled/t-aid.fst compiled/step4.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
+echo "Testing step 4 with DUAL (-> TUAL)"
+fstcompose compiled/t-dual.fst compiled/step4.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
 
 
 echo "####################### TESTING OF STEP 5 #######################"
@@ -148,7 +152,7 @@ echo "Testing step 5 with FIGHT (-> FIHT)"
 fstcompose compiled/t-fight.fst compiled/step5.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 5 with FOREIGN (-> FOREIN) -> TO DO: HAS TO BE CHECKED - G OR N TO DROP?"
+echo "Testing step 5 with FOREIGN (-> FOREIN)"
 fstcompose compiled/t-foreign.fst compiled/step5.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
@@ -258,4 +262,8 @@ fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
 echo "Testing step 8 with KEBOARD (-> KBRD)"
 fstcompose compiled/t-keboard.fst compiled/step9.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing step 8 with AERIAL (-> ARL)"
+fstcompose compiled/t-aerial.fst compiled/step9.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
