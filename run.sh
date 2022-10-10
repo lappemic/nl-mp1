@@ -1,3 +1,4 @@
+#!/bin/zsh
 
 mkdir -p compiled images
 
@@ -22,7 +23,8 @@ for i in sources/*.txt tests/*.txt; do
 done
 
 # ############ CORE OF THE PROJECT  ############
-echo "Starting to build metaphoneLN"
+echo "Starting to build metaphoneLN (compose steps 1-9)"
+
 fstcompose compiled/step1.fst compiled/step2.fst > compiled/compose12.fst
 fstcompose compiled/compose12.fst compiled/step3.fst > compiled/compose123.fst
 fstcompose compiled/compose123.fst compiled/step4.fst > compiled/compose1234.fst
@@ -33,16 +35,18 @@ fstcompose compiled/compose1234567.fst compiled/step8.fst > compiled/compose1234
 
 fstcompose compiled/compose12345678.fst compiled/step9.fst > compiled/metaphoneLN.fst
 
-echo "Starting to build invertMetaphoneLN"
+
+echo "Starting to build invertMetaphoneLN (inversion of metaphoneLN)"
+
 fstinvert compiled/metaphoneLN.fst > compiled/invertMetaphoneLN.fst
 
 
-# ############ generate PDFs  ############
-echo "Starting to generate PDFs"
-for i in compiled/*.fst; do
-	echo "Creating image: images/$(basename $i '.fst').pdf"
-   fstdraw --portrait --isymbols=syms.txt --osymbols=syms.txt $i | dot -Tpdf > images/$(basename $i '.fst').pdf
-done
+############ generate PDFs  ############
+# echo "Starting to generate PDFs"
+# for i in compiled/*.fst; do
+# 	echo "Creating image: images/$(basename $i '.fst').pdf"
+#   fstdraw --portrait --isymbols=syms.txt --osymbols=syms.txt $i | dot -Tpdf > images/$(basename $i '.fst').pdf
+# done
 
 
 
@@ -50,15 +54,15 @@ done
 
 echo "####################### TESTING OF STEP 1 #######################"
 
-echo "Testing step 1 with ERRORS (drop duplicated adjacent letters, except 'C')"
+echo "Testing step 1 with ERRORS (-> ERORS)"
 fstcompose compiled/t-errors.fst compiled/step1.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 1 with ACCORDING (drop duplicated adjacent letters, except 'C')"
+echo "Testing step 1 with ACCORDING (-> ACCORDING)"
 fstcompose compiled/t-according.fst compiled/step1.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 1 with RUSSIAN (drop duplicated adjacent letters, except 'C')"
+echo "Testing step 1 with RUSSIAN (-> RUSIAN)"
 fstcompose compiled/t-russian.fst compiled/step1.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
@@ -66,19 +70,19 @@ fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
 echo "####################### TESTING OF STEP 2 #######################"
 
-echo "Testing step 2 with KNEE (if word begins with 'KN', 'GN', 'PN', 'AE', or 'WR', drop first letter)"
+echo "Testing step 2 with KNEE (-> NEE)"
 fstcompose compiled/t-knee.fst compiled/step2.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 2 with GNOME (if word begins with 'KN', 'GN', 'PN', 'AE', or 'WR', drop first letter)"
+echo "Testing step 2 with GNOME (-> NOME)"
 fstcompose compiled/t-gnome.fst compiled/step2.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 2 with WRAPPERS (if word begins with 'KN', 'GN', 'PN', 'AE', or 'WR', drop first letter)"
+echo "Testing step 2 with WRAPPERS (-> RAPPERS)"
 fstcompose compiled/t-wrappers.fst compiled/step2.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 2 with BREADCRUMB (if the word ends with 'MB' drop the 'B'.)"
+echo "Testing step 2 with BREADCRUMB (-> BREADCUM)"
 fstcompose compiled/t-breadcrumb.fst compiled/step2.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
@@ -258,11 +262,11 @@ echo "Testing step 9 with USE (-> US)"
 fstcompose compiled/t-use.fst compiled/step9.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 8 with KEBOARD (-> KBRD)"
+echo "Testing step 9 with KEBOARD (-> KBRD)"
 fstcompose compiled/t-keboard.fst compiled/step9.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing step 8 with AERIAL (-> ARL)"
+echo "Testing step 9 with AERIAL (-> ARL)"
 fstcompose compiled/t-aerial.fst compiled/step9.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
@@ -278,30 +282,56 @@ echo "Testing metaphoneLN with LAPPERT (-> LPRT)"
 fstcompose compiled/t-105108-lappert.fst compiled/metaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing metaphoneLN with GONCALO (-> GNKL)"
+echo "Testing metaphoneLN with GONCALO (-> MKSHL)"
 fstcompose compiled/t-84721-goncalo.fst compiled/metaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing metaphoneLN with CRUZ (-> KRS)"
+echo "Testing metaphoneLN with LAPPERT (-> LPRT)"
 fstcompose compiled/t-84721-cruz.fst compiled/metaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "******** TESTING OF metaphoneLN with Shakespeare ********"
+
+echo "Testing metaphoneLN with THAT (-> 0T)"
+fstcompose compiled/t-that.fst compiled/metaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing metaphoneLN with THE (-> 0)"
+fstcompose compiled/t-the.fst compiled/metaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing metaphoneLN with QUESTION (-> KSKSN)"
+fstcompose compiled/t-question.fst compiled/metaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing metaphoneLN with WILLIAM (-> WLM)"
+fstcompose compiled/t-william.fst compiled/metaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing metaphoneLN with SHAKESPEARE (-> SHKSPR)"
+fstcompose compiled/t-shakespeare.fst compiled/metaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
 
 
 echo "####################### TESTING OF invertMetaphoneLN #######################"
 
-echo "Testing metaphoneLN with MICHAEL"
-fstcompose compiled/t-105108-michael.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
+echo "Testing invertMetaphoneLN with MKSHL (output for MICHAEL from metaphoneLN)"
+fstcompose compiled/t-mkshl.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing metaphoneLN with LAPPERT"
+echo "Testing invertMetaphoneLN with LAPPERT"
 fstcompose compiled/t-105108-lappert.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing metaphoneLN with GONCALO"
-fstcompose compiled/t-84721-goncalo.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
+echo "Testing invertMetaphoneLN with LPRT (output for MICHAEL from metaphoneLN)"
+fstcompose compiled/t-lprt.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing metaphoneLN with CRUZ"
-fstcompose compiled/t-84721-cruz.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
+echo "Testing invertMetaphoneLN with SHAKESPEARE"
+fstcompose compiled/t-shakespeare.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing invertMetaphoneLN with SHKSPR (-> output for SHAKESPEARE from metahpneLN)"
+fstcompose compiled/t-shkspr.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
