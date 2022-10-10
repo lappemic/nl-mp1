@@ -42,11 +42,11 @@ fstinvert compiled/metaphoneLN.fst > compiled/invertMetaphoneLN.fst
 
 
 ############ generate PDFs  ############
-# echo "Starting to generate PDFs"
-# for i in compiled/*.fst; do
-# 	echo "Creating image: images/$(basename $i '.fst').pdf"
-#   fstdraw --portrait --isymbols=syms.txt --osymbols=syms.txt $i | dot -Tpdf > images/$(basename $i '.fst').pdf
-# done
+echo "Starting to generate PDFs"
+for i in compiled/*.fst; do
+	echo "Creating image: images/$(basename $i '.fst').pdf"
+  fstdraw --portrait --isymbols=syms.txt --osymbols=syms.txt $i | dot -Tpdf > images/$(basename $i '.fst').pdf
+done
 
 
 
@@ -282,11 +282,11 @@ echo "Testing metaphoneLN with LAPPERT (-> LPRT)"
 fstcompose compiled/t-105108-lappert.fst compiled/metaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing metaphoneLN with GONCALO (-> MKSHL)"
+echo "Testing metaphoneLN with GONCALO (-> GNKL)"
 fstcompose compiled/t-84721-goncalo.fst compiled/metaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing metaphoneLN with LAPPERT (-> LPRT)"
+echo "Testing metaphoneLN with CRUZ (-> KRS)"
 fstcompose compiled/t-84721-cruz.fst compiled/metaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
@@ -320,12 +320,16 @@ echo "Testing invertMetaphoneLN with MKSHL (output for MICHAEL from metaphoneLN)
 fstcompose compiled/t-mkshl.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
-echo "Testing invertMetaphoneLN with LAPPERT"
-fstcompose compiled/t-105108-lappert.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
-fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
-
 echo "Testing invertMetaphoneLN with LPRT (output for MICHAEL from metaphoneLN)"
 fstcompose compiled/t-lprt.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing metaphoneLN with GNKL (-> output for GONCALO from metaphoneLN)"
+fstcompose compiled/t-gnkl.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
+fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
+
+echo "Testing metaphoneLN with KRS (-> output for CRUZ from metaphoneLN)"
+fstcompose compiled/t-krs.fst compiled/invertMetaphoneLN.fst| fstshortestpath | fstproject --project_type=output |
 fstrmepsilon | fsttopsort | fstprint --acceptor --isymbols=./syms.txt
 
 echo "Testing invertMetaphoneLN with SHAKESPEARE"
